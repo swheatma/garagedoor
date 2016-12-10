@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import RPi.GPIO as GPIO
 import time
 # GPIO.cleanup()
@@ -18,6 +20,8 @@ OPEN = "open"
 CLOSED = "closed"
 Rcounter = 0
 Lcounter = 0
+door_delay = 3
+
 #check door status
 def door_status(x1):
     return OPEN if GPIO.input(x1) else CLOSED
@@ -34,6 +38,8 @@ while True:
         if Rcounter > delay:
             print "Right Door has been open too long, closing..."
             closeDoor(R_Light)
+            time.sleep(door_delay)
+            print "Door should now be closed"
             Rcounter = 0
         else:
             Rcounter+=1
@@ -45,6 +51,8 @@ while True:
         if Lcounter > delay:
             print "Left Door has been open too long, closing..."
             closeDoor(L_Light)
+            time.sleep(door_delay)
+            print "Door should now be closed"
             Lcounter = 0
         else:
             Lcounter+=1
