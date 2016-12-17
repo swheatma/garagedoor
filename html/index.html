@@ -6,18 +6,23 @@
     <script type="text/javascript" src="/webiopi.js"></script>
     <script type="text/javascript">
     webiopi().ready(function() {
-        // Create a "Light" labeled button for GPIO 22
-        var button = webiopi().createGPIOButton(22, "Left Door");
+        
+	// Create a button for GPIO17 status
+	button=webiopi().createGPIOButton(17,"Left Door");
+        $("#controls").append(button);
+
+	// Create a button for GPIO18 status
+	button=webiopi().createGPIOButton(18,"Right Door");
+        $("#controls").append(button);
+
+	// Create a button for GPIO 22 labelled "Left Door"
+        var button = webiopi().createGPIOButton(22, "Left Button");
         // Append button to HTML element with ID="controls" using jQuery
         $("#controls").append(button);
 
-        
-// Append button to HTML element with ID="controls" using jQuery
-        $("#controls").append(button);
-        // Create a "Led" labeled button for GPIO 25
-        var button = webiopi().createGPIOButton(25, "Right Door");
-        
-// Append button to HTML element with ID="controls" using jQuery
+        // Create a button for GPIO 24 labelled "Right Door"
+        var button = webiopi().createGPIOButton(24, "Right Button");
+	// Append button to HTML element with ID="controls" using jQuery
         $("#controls").append(button);
         // Refresh GPIO buttons
         // pass true to refresh repeatedly of false to refresh once
@@ -36,23 +41,35 @@
             color: white;
         }
 
-        #gpio22.LOW {
+	#gpio17.LOW {
+            background-color: Green;
+        }        
+	#gpio17.HIGH {
+            background-color: Red;
+        }        
+	#gpio18.LOW {
+            background-color: Green;
+        }        
+	#gpio18.HIGH {
+            background-color: Red;
+        }        
+	#gpio22.LOW {
             background-color: Black;
         }
         #gpio22.HIGH {
-            background-color: Blue;
+            background-color: Grey;
         }
         #gpio23.LOW {
             background-color: red;
         }
         #gpio23.HIGH {
-            background-color: green;
+            background-color: pink;
         }
         #gpio24.LOW {
-            background-color: orange;
+            background-color: Black;
         }
         #gpio24.HIGH {
-            background-color: white;
+            background-color: Grey;
         }
         #gpio25.LOW {
             background-color: pink;
