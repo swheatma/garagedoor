@@ -4,7 +4,7 @@ import webiopi
 GPIO = webiopi.GPIO
 
 LIGHT = 22 # GPIO pin using BCM numbering
-LIGHT2 = 25 
+LIGHT2 = 24
 
 # setup function is automatically called at WebIOPi startup
 def setup():
