@@ -2,16 +2,12 @@
 
 import RPi.GPIO as GPIO
 import time
-# GPIO.cleanup()
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(11, GPIO.IN)
-GPIO.setup(12, GPIO.IN)
-GPIO.setup(15, GPIO.OUT)
-GPIO.setup(22, GPIO.OUT)
+
+# set variables
 left = 11
 right = 12
 R_Light = 15
-L_Light = 22
+L_Light = 18
 delay = 4
 T1 = 0
 T2 = 0
@@ -20,18 +16,27 @@ OPEN = "open"
 CLOSED = "closed"
 Rcounter = 0
 Lcounter = 0
-door_delay = 3
+door_delay = 15
+
+# GPIO.cleanup()
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(left, GPIO.IN)
+GPIO.setup(right, GPIO.IN)
+GPIO.setup(R_Light, GPIO.OUT)
+GPIO.setup(L_Light, GPIO.OUT)
+
 
 #check door status
 def door_status(x1):
     return OPEN if GPIO.input(x1) else CLOSED
 
 def closeDoor(door):
-    GPIO.output(door, True)
+    GPIO.output(door, False)
     time.sleep(1)
-    GPIO.output(door,False)
+    GPIO.output(door,True)
 
-GPIO.output(R_Light,False)
+GPIO.output(R_Light,True)
+GPIO.output(L_Light,True)
 
 while True:
     if door_status(right) == OPEN:
