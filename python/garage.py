@@ -4,22 +4,23 @@ import RPi.GPIO as GPIO
 import time
 
 # set variables
-left = 11
-right = 12
-R_Light = 15
-L_Light = 18
-delay = 4
+left = 11    #GPIO17
+right = 12   #GPIO18
+R_Light = 15 #GPIO22
+L_Light = 18 #GPIO24
+delay = 4      #door open limit in seconds
 T1 = 0
 T2 = 0
 TE = 0
 OPEN = "open"
 CLOSED = "closed"
-Rcounter = 0
+RClosed = time.time()
+RElapsed = 0
 Lcounter = 0
-door_delay = 15
+door_delay = 15  # Time is takes for the door to close (in seconds)
 
 # GPIO.cleanup()
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BOARD) # use GPIO pinout references (not GPIO number)
 GPIO.setup(left, GPIO.IN)
 GPIO.setup(right, GPIO.IN)
 GPIO.setup(R_Light, GPIO.OUT)
@@ -40,29 +41,31 @@ GPIO.output(L_Light,True)
 
 while True:
     if door_status(right) == OPEN:
-        if Rcounter > delay:
+        RElapsed = time.time() - RClosed
+        if RElapsed > delay:
+            print "Right Door has been open ", RElapsed, " second"
             print "Right Door has been open too long, closing..."
             closeDoor(R_Light)
             time.sleep(door_delay)
             print "Door should now be closed"
-            Rcounter = 0
         else:
-            Rcounter+=1
-            print "Right Door has been open ", Rcounter, " second"
+            RElapsed = time.time() - RClosed
+            print "Right Door has been open ", RElapsed, " second"
     else:
         print "Right Door is closed"
-        Rcounter = 0
+        RClosed = time.time()
     if door_status(left) == OPEN:
-        if Lcounter > delay:
+        LElapsed = time.time() - LClosed
+        if LElapsed > delay:
+            print "Left Door has been open ", LElapsed, " second"
             print "Left Door has been open too long, closing..."
             closeDoor(L_Light)
             time.sleep(door_delay)
             print "Door should now be closed"
-            Lcounter = 0
         else:
-            Lcounter+=1
-            print "Left Door has been open ", Lcounter, " second"
+            LElapsed = time.time() - LClosed
+            print "Left Door has been open ", LElapsed, " second"
     else:
         print "Left Door is closed"
-        Lcounter = 0
+        LClosed = time.time()
     time.sleep(1)
