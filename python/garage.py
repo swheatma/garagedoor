@@ -7,16 +7,15 @@ import time
 left = 11    #GPIO17
 right = 12   #GPIO18
 R_Light = 15 #GPIO22
-L_Light = 18 #GPIO24
-delay = 4      #door open limit in seconds
-T1 = 0
-T2 = 0
-TE = 0
+L_Light = 16 #GPIO23
+delay = 180     #door open limit in seconds
+
 OPEN = "open"
 CLOSED = "closed"
 RClosed = time.time()
 RElapsed = 0
-Lcounter = 0
+LElapsed = 0
+
 door_delay = 15  # Time is takes for the door to close (in seconds)
 
 # GPIO.cleanup()

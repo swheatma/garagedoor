@@ -1,10 +1,9 @@
 import webiopi
-#SW import datetime
 
 GPIO = webiopi.GPIO
 
 LIGHT = 22 # GPIO pin using BCM numbering
-LIGHT2 = 24
+LIGHT2 = 23
 
 # setup function is automatically called at WebIOPi startup
 def setup():
@@ -14,10 +13,6 @@ def setup():
 
 # loop function is repeatedly called by WebIOPi 
 def loop():
-    # retrieve current datetime
-#SW    now = datetime.datetime.now()
-
-    # gives CPU some time before looping again
     webiopi.sleep(1)
 
 # destroy function is called at WebIOPi shutdown
