@@ -11,9 +11,21 @@ Software Installation
 		$ cd WebIOPi-x.y.z
 		$ sudo ./setup.sh
 
+2. Set static IP address on Pi:
+	Edit the file /etc/dhcpcd.conf
+	$ sudo nano /etc/dhcpcd.conf
+	Add the following lines to the end of the file:
+		interface eth0
+		static ip_address=192.168.1.150 (or whatever address you want to use)
+
+		interface wlan0
+		static ip_address=192.168.1.151 (or whatever address you want to use)
+
+		static routers=192.168.1.1 (the actual  address of your router)
+
 2. Install Garage Door Controller:
 	Copy all files to /home/pi/Projects/Garage
-		This should create the html and puthon sub-folders
+		This should create the html and python sub-folders
 	Notes:
 		The root folder will contain the config file which will need to be copied as stated below
 		Python folder will contain:
