@@ -4,7 +4,7 @@ Steps to install everything
 
 Software Installation
 
-1.Install WebIOPi
+1. Install WebIOPi
 	Download from: http://webiopi.trouch.com/DOWNLOADS.html
 	Install:
 		$ tar xvzf WebIOPi-x.y.z.tar.gz
@@ -23,7 +23,7 @@ Software Installation
 
 		static routers=192.168.1.1 (the actual  address of your router)
 
-2. Install Garage Door Controller:
+3. Install Garage Door Controller:
 	Copy all files to /home/pi/Projects/Garage
 		This should create the html and python sub-folders
 	Notes:
@@ -34,17 +34,17 @@ Software Installation
 		html foler contains index.html for the web interface
 
 
-3. Copy config file to WebOIPi folder
+4. Copy config file to WebOIPi folder
 	$sudo cp /home/pi/Projects/Garage /etc/webiopi/config
 
-4. To start Garage program at startup:
+5. To start Garage program at startup:
 	Make the program executable:
 		$ chmod +x garage.py
 	Add to startup file
 		Add the following line of text to the bottom of: /home/pi/.config/lxsession/LXDE-pi/autostart
 		/home/pi/Projects/Garage/python/garage.py
 
-5. To start the web service:
+6. To start the web service:
 	$ sudo /etc/init.d/webiopi start
    To stop the web service:
 	$ sudo /etc/init.d/webiopi stop
@@ -52,7 +52,7 @@ Software Installation
    To start web service at startup:
 	$ sudo update-rc.d webiopi defaults
 
-6. Access WebIOPi over local network
+7. Access WebIOPi over local network
 	Open a browser to http://raspberrypi:8000/ with any device of your network. Replace raspberrypi by its IP.
 
 	Default user is "webiopi" and password is "raspberry"
