@@ -24,7 +24,9 @@ Software Installation
 		static routers=192.168.1.1 (the actual  address of your router)
 
 3. Install Garage Door Controller:
-	Copy all files to /home/pi/Projects/Garage
+	Copy the files from GitHub:
+	$ git clone https://github.com/swheatma/garagedoor
+	This will create a folder called garagedoor in the current folder.
 		This should create the html and python sub-folders
 	Notes:
 		The root folder will contain the config file which will need to be copied as stated below
@@ -33,16 +35,15 @@ Software Installation
 			script.py (the web interface program)
 		html foler contains index.html for the web interface
 
-
 4. Copy config file to WebOIPi folder
-	$sudo cp /home/pi/Projects/Garage /etc/webiopi/config
+	$sudo cp /home/pi/Projects/garagedoor/config-garage /etc/webiopi/config
 
 5. To start Garage program at startup:
 	Make the program executable:
 		$ chmod +x garage.py
 	Add to startup file
 		Add the following line of text to the bottom of: /home/pi/.config/lxsession/LXDE-pi/autostart
-		/home/pi/Projects/Garage/python/garage.py
+		/home/pi/Projects/garagedoor/python/garage.py
 
 6. To start the web service:
 	$ sudo /etc/init.d/webiopi start
