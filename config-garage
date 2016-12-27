@@ -25,7 +25,7 @@
 #   each sourcefile may have setup, loop and destroy functions and macros
 #myscript = /home/pi/webiopi/examples/scripts/macros/script.py
 #myproject = /home/pi/Projects/Trouch_Tutorial/python/script.py
-myproject = /home/pi/Projects/Garage/python/script.py
+myproject = /home/pi/Projects/garagedoor/python/script.py
 
 #------------------------------------------------------------------------#
 
@@ -45,7 +45,7 @@ prompt = "WebIOPi"
 #doc-root = /home/pi/webiopi/examples/scripts/macros
 #doc-root = /home/pi/Projects/Webio/html
 #doc-root = /home/pi/Projects/Trouch_Tutorial/html
-doc-root = /home/pi/Projects/Garage/html
+doc-root = /home/pi/Projects/garagedoor/html
 
 # Use welcome-file to change the default "Welcome" file
 #welcome-file = index.html

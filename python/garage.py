@@ -8,7 +8,7 @@ left = 11    #GPIO17
 right = 12   #GPIO18
 R_Light = 15 #GPIO22
 L_Light = 16 #GPIO23
-delay = 180     #door open limit in seconds
+delay = 300     #door open limit in seconds
 
 OPEN = "open"
 CLOSED = "closed"
