@@ -24,16 +24,18 @@ Software Installation
 		static routers=192.168.1.1 (the actual  address of your router)
 
 3. Install Garage Door Controller:
+	Go to the folder: /home/pi/Projects
+		$ cd /home/pi/Projects
 	Copy the files from GitHub:
-	$ git clone https://github.com/swheatma/garagedoor
+		$ git clone https://github.com/swheatma/garagedoor
 	This will create a folder called garagedoor in the current folder.
-		This should create the html and python sub-folders
 	Notes:
+		This should create the html and python sub-folders
 		The root folder will contain the config file which will need to be copied as stated below
-		Python folder will contain:
+		The python folder will contain:
 			garage.py (the garage controller program)
 			script.py (the web interface program)
-		html foler contains index.html for the web interface
+		The html folder contains index.html for the web interface
 
 4. Copy config file to WebOIPi folder
 	$sudo cp /home/pi/Projects/garagedoor/config-garage /etc/webiopi/config
