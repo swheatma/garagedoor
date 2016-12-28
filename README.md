@@ -43,16 +43,20 @@ Software Installation
 5. To start Garage program at startup:
 	Make the program executable:
 		$ chmod +x garage.py
-	Add to startup file
+	Option-1:
+		Add to LXDE-pi/autostart file
 		Add the following line of text to the bottom of: /home/pi/.config/lxsession/LXDE-pi/autostart
 		/home/pi/Projects/garagedoor/python/garage.py
+	Option-2:
+		Add to crontab
+		Edit the crontab file
+		$ sudo crontab -e
+		add the following line:
+		@reboot python /home/pi/Projects/garagedoor/python/garage.py &
+		to add a delay before the program starts (recommended)
+		@reboot sleep 20 && python /home/pi/Projects/garagedoor/python/garage.py &
 
-6. To start the web service:
-	$ sudo /etc/init.d/webiopi start
-   To stop the web service:
-	$ sudo /etc/init.d/webiopi stop
-	
-   To start web service at startup:
+6. To start web service at startup:
 	$ sudo update-rc.d webiopi defaults
 
 7. Access WebIOPi over local network
