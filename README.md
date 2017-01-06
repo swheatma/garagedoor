@@ -24,32 +24,39 @@ Software Installation
 		static routers=192.168.1.1 (the actual  address of your router)
 
 3. Install Garage Door Controller:
-	Copy all files to /home/pi/Projects/Garage
-		This should create the html and python sub-folders
+	Go to the folder: /home/pi/Projects
+		$ cd /home/pi/Projects
+	Copy the files from GitHub:
+		$ git clone https://github.com/swheatma/garagedoor
+	This will create a folder called garagedoor in the current folder.
 	Notes:
+		This should create the html and python sub-folders
 		The root folder will contain the config file which will need to be copied as stated below
-		Python folder will contain:
+		The python folder will contain:
 			garage.py (the garage controller program)
 			script.py (the web interface program)
-		html foler contains index.html for the web interface
-
+		The html folder contains index.html for the web interface
 
 4. Copy config file to WebOIPi folder
-	$sudo cp /home/pi/Projects/Garage /etc/webiopi/config
+	$sudo cp /home/pi/Projects/garagedoor/config-garage /etc/webiopi/config
 
 5. To start Garage program at startup:
 	Make the program executable:
 		$ chmod +x garage.py
-	Add to startup file
+	Option-1:
+		Add to LXDE-pi/autostart file
 		Add the following line of text to the bottom of: /home/pi/.config/lxsession/LXDE-pi/autostart
-		/home/pi/Projects/Garage/python/garage.py
+		/home/pi/Projects/garagedoor/python/garage.py
+	Option-2:
+		Add to crontab
+		Edit the crontab file
+		$ sudo crontab -e
+		add the following line:
+		@reboot python /home/pi/Projects/garagedoor/python/garage.py &
+		to add a delay before the program starts (recommended)
+		@reboot sleep 20 && python /home/pi/Projects/garagedoor/python/garage.py &
 
-6. To start the web service:
-	$ sudo /etc/init.d/webiopi start
-   To stop the web service:
-	$ sudo /etc/init.d/webiopi stop
-	
-   To start web service at startup:
+6. To start web service at startup:
 	$ sudo update-rc.d webiopi defaults
 
 7. Access WebIOPi over local network

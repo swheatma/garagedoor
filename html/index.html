@@ -15,13 +15,13 @@
 	button=webiopi().createGPIOButton(18,"Right Door");
         $("#controls").append(button);
 
-	// Create a button for GPIO 23 labelled "Left Button"
-        var button = webiopi().createGPIOButton(23, "Left Button");
+	// Create a button for GPIO 22 labelled "Left Button"
+        var button = webiopi().createGPIOButton(22, "Left Button");
         // Append button to HTML element with ID="controls" using jQuery
         $("#controls").append(button);
 
-        // Create a button for GPIO 22 labelled "Right Door"
-        var button = webiopi().createGPIOButton(22, "Right Button");
+        // Create a button for GPIO 23 labelled "Right Door"
+        var button = webiopi().createGPIOButton(23, "Right Button");
 	// Append button to HTML element with ID="controls" using jQuery
         $("#controls").append(button);
         // Refresh GPIO buttons
