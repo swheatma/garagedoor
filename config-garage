@@ -3,9 +3,9 @@
 # This is used during WebIOPi start process
 17 = IN
 18 = IN
-22 = OUT 1
-23 = OUT 1
-
+22 = OUT 0
+23 = OUT 0
+24 = OUT 0
 
 #------------------------------------------------------------------------#
 
@@ -14,8 +14,9 @@
 # This is used at the end of WebIOPi stop process
 17 = IN
 18 = IN
-22 = OUT 1
-23 = OUT 1
+22 = OUT 0
+23 = OUT 0
+24 = OUT 0
 
 #------------------------------------------------------------------------#
 
@@ -23,8 +24,6 @@
 # Load custom scripts syntax :
 # name = sourcefile
 #   each sourcefile may have setup, loop and destroy functions and macros
-#myscript = /home/pi/webiopi/examples/scripts/macros/script.py
-#myproject = /home/pi/Projects/Trouch_Tutorial/python/script.py
 myproject = /home/pi/Projects/garagedoor/python/script.py
 
 #------------------------------------------------------------------------#
@@ -42,9 +41,6 @@ passwd-file = /etc/webiopi/passwd
 prompt = "WebIOPi"
 
 # Use doc-root to change default HTML and resource files location
-#doc-root = /home/pi/webiopi/examples/scripts/macros
-#doc-root = /home/pi/Projects/Webio/html
-#doc-root = /home/pi/Projects/Trouch_Tutorial/html
 doc-root = /home/pi/Projects/garagedoor/html
 
 # Use welcome-file to change the default "Welcome" file
@@ -70,39 +66,6 @@ multicast = true
 # If enabled, devices configured here are mapped on REST API /device/name
 # Devices are also accessible in custom scripts using deviceInstance(name)
 # See device driver doc for methods and URI scheme available
-
-# Raspberry native UART on GPIO, uncomment to enable
-# Don't forget to remove console on ttyAMA0 in /boot/cmdline.txt
-# And also disable getty on ttyAMA0 in /etc/inittab
-#serial0 = Serial device:ttyAMA0 baudrate:9600
-
-# USB serial adapters
-#usb0 = Serial device:ttyUSB0 baudrate:9600
-#usb1 = Serial device:ttyACM0 baudrate:9600
-
-#temp0 = TMP102
-#temp1 = TMP102 slave:0x49
-#temp2 = DS18B20
-#temp3 = DS18B20 slave:28-0000049bc218
-
-#bmp = BMP085
-
-#gpio0 = PCF8574
-#gpio1 = PCF8574 slave:0x21
-
-#light0 = TSL2561T
-#light1 = TSL2561T slave:0b0101001
-
-#gpio0 = MCP23017
-#gpio1 = MCP23017 slave:0x21
-#gpio2 = MCP23017 slave:0x22
-
-#pwm0 = PCA9685
-#pwm1 = PCA9685 slave:0x41
-
-#adc0 = MCP3008
-#adc1 = MCP3008 chip:1 vref:5
-#dac1 = MCP4922 chip:1
 
 #------------------------------------------------------------------------#
 
@@ -141,6 +104,3 @@ multicast = true
 #/livingroom/light = /devices/expander0/0
 #/livingroom/brightness = /devices/adc/0/float
 #/livingroom/temperature = /devices/temp0/temperature/c
-
-#/weather/temperature = /devices/bmp/temperature/c
-#/weather/pressure = /devices/bmp/pressure/hpa
