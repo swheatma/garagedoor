@@ -15,14 +15,13 @@
 	button=webiopi().createGPIOButton(18,"Right Door");
         $("#controls").append(button);
 
-	// Create a button for GPIO 22 labelled "Left Button"
-        // var button = webiopi().createGPIOButton(22, "Left Button");
-	var button = webiopi().createSequenceButton("Left", "L-AutoButton", 22, 500, "010");
+	// Create a Sequence button for GPIO 22 labelled "Left Button"
+	button = webiopi().createSequenceButton("Left", "Left Button", 22, 500, "010");
 	// Append button to HTML element with ID="controls" using jQuery
         $("#controls").append(button);
 
-        // Create a button for GPIO 23 labelled "Right Door"
-        var button = webiopi().createGPIOButton(23, "Right Button");
+        // Create a Sequence button for GPIO 23 labelled "Right Button"
+        button = webiopi().createSequenceButton("Right", "Right Button", 23, 500, "010");
 	// Append button to HTML element with ID="controls" using jQuery
         $("#controls").append(button);
        
@@ -67,6 +66,18 @@
         #gpio23.HIGH {
             background-color: Grey;
         }
+	#Right{
+        	background-color: Blue;
+	}
+	#Right:active {
+		background-color: Yellow;
+	}
+	#Left{
+		background-color: Blue;
+	}
+	#Left:active {
+		background-color: Yellow;
+	}
 
     </style>
 </head>
