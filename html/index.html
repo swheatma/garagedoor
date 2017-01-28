@@ -16,15 +16,17 @@
         $("#controls").append(button);
 
 	// Create a button for GPIO 22 labelled "Left Button"
-        var button = webiopi().createGPIOButton(22, "Left Button");
-        // Append button to HTML element with ID="controls" using jQuery
+        // var button = webiopi().createGPIOButton(22, "Left Button");
+	var button = webiopi().createSequenceButton("Left", "L-AutoButton", 22, 500, "010");
+	// Append button to HTML element with ID="controls" using jQuery
         $("#controls").append(button);
 
         // Create a button for GPIO 23 labelled "Right Door"
         var button = webiopi().createGPIOButton(23, "Right Button");
 	// Append button to HTML element with ID="controls" using jQuery
         $("#controls").append(button);
-        // Refresh GPIO buttons
+       
+	// Refresh GPIO buttons
         // pass true to refresh repeatedly of false to refresh once
                 webiopi().refreshGPIO(true);
     });
