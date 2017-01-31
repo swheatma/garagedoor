@@ -16,12 +16,12 @@
         $("#controls").append(button);
 
 	// Create a Sequence button for GPIO 22 labelled "Left Button"
-	button = webiopi().createSequenceButton("Left", "Left Button", 22, 500, "010");
+	button = webiopi().createSequenceButton("Left", "Left Button", 22, 1250, "10");
 	// Append button to HTML element with ID="controls" using jQuery
         $("#controls").append(button);
 
         // Create a Sequence button for GPIO 23 labelled "Right Button"
-        button = webiopi().createSequenceButton("Right", "Right Button", 23, 500, "010");
+        button = webiopi().createSequenceButton("Right", "Right Button", 23, 1250, "10");
 	// Append button to HTML element with ID="controls" using jQuery
         $("#controls").append(button);
        
@@ -37,6 +37,7 @@
             margin: 5px 5px 5px 5px;
             width: 250px;
             height: 45px;
+	    border-radius: 10px;
             font-size: 24pt;
             font-weight: bold;
             color: white;
