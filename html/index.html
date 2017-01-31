@@ -9,21 +9,21 @@
         
 	// Create a button for GPIO17 status
 	button=webiopi().createGPIOButton(17,"Left Door");
-        $("#controls").append(button);
+        $("#pstn1").append(button);
 
 	// Create a button for GPIO18 status
 	button=webiopi().createGPIOButton(18,"Right Door");
-        $("#controls").append(button);
+        $("#pstn2").append(button);
 
 	// Create a Sequence button for GPIO 22 labelled "Left Button"
 	button = webiopi().createSequenceButton("Left", "Left Button", 22, 1250, "10");
 	// Append button to HTML element with ID="controls" using jQuery
-        $("#controls").append(button);
+        $("#pstn3").append(button);
 
         // Create a Sequence button for GPIO 23 labelled "Right Button"
         button = webiopi().createSequenceButton("Right", "Right Button", 23, 1250, "10");
 	// Append button to HTML element with ID="controls" using jQuery
-        $("#controls").append(button);
+        $("#pstn4").append(button);
        
 	// Refresh GPIO buttons
         // pass true to refresh repeatedly of false to refresh once
@@ -42,6 +42,30 @@
             font-weight: bold;
             color: white;
         }
+
+	#pstn1 {
+	position: absolute;
+	top: 5%;
+	left: 10%;
+	}
+
+	#pstn2 {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	}
+
+	#pstn3 {
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	}
+	
+	#pstn4 {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	}
 
 	#gpio17.LOW {
             background-color: Green;
@@ -73,5 +97,9 @@
 </head>
 <body>
     <div id="controls" align="center"></div>
+    <div id="pstn1"></div>
+    <div id="pstn2"></div>
+    <div id="pstn3"></div>
+    <div id="pstn4"></div>
 </body>
 </html>
