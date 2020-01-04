@@ -25,12 +25,14 @@ Setup Raspberry Pi
 	Use ifconfig to find the ip addres of your raspberry pi
 
 6. Update the raspian OS
+```
 	$sudo apt-get update
 	$sudo apt-get upgrade
-
+```
 7. If you want to connect to raspberry pi using vnc, enable it in the configuration
-	$sudo raspi-config
-
+```
+$sudo raspi-config
+```
 8. Set static IP address on Pi:
 	Edit the file /etc/dhcpcd.conf
 	$ sudo nano /etc/dhcpcd.conf
@@ -44,29 +46,38 @@ Setup Raspberry Pi
 		static routers=192.168.1.1 (the actual  address of your router)
 
 9. Reboot the raspberry pi to make the changes take effect
-	$sudo reboot
-
+```
+$sudo reboot
+```
 
 
 Steps to install Garage Door Program
 
 1. Install WebIOPi
+```
 	wget http://sourceforge.net/projects/webiopi/files/webiopi-0.7.1.tar.gz
-	
-	or 
-	
-	Download from: http://webiopi.trouch.com/DOWNLOADS.html
-	Install:
+```	
+
+or download from: http://webiopi.trouch.com/DOWNLOADS.html
+	Unarchive and Install:
+```		
 		$ tar xvzf WebIOPi-x.y.z.tar.gz
 		$ cd WebIOPi-x.y.z
 		$ sudo ./setup.sh
+```
 
 2. Install Garage Door Controller:
 	Go to the folder: /home/pi/Projects
-		$ cd /home/pi/Projects
+```
+$ cd /home/pi/Projects
+```
+
 	Copy the files from GitHub:
-		$ git clone https://github.com/swheatma/garagedoor
-	This will create a folder called garagedoor in the current folder.
+
+```
+$ git clone https://github.com/swheatma/garagedoor
+```
+This will create a folder called garagedoor in the current folder.
 	Notes:
 		This should create the html and python sub-folders
 		The root folder will contain the config file which will need to be copied as stated below
@@ -76,10 +87,13 @@ Steps to install Garage Door Program
 		The html folder contains index.html for the web interface
 
 3. Copy config file to WebOIPi folder
-	$sudo cp /home/pi/Projects/garagedoor/config-garage /etc/webiopi/config
-
+```
+$sudo cp /home/pi/Projects/garagedoor/config-garage /etc/webiopi/config
+```
 4. Make the program executable:
+```
 	$ chmod +x /home/pi/Projects/garagedoor/python/garage.py
+```
 
 5. To start Garage program at startup:
 	Option-1:
@@ -96,8 +110,9 @@ Steps to install Garage Door Program
 		@reboot sleep 20 && python /home/pi/Projects/garagedoor/python/garage.py &
 
 6. To start web service at startup:
+```
 	$ sudo update-rc.d webiopi defaults
-
+```
 7. Access WebIOPi over local network
 	Open a browser to http://raspberrypi:8000/ with any device of your network. Replace raspberrypi by its IP.
 
