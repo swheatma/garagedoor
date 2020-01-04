@@ -6,7 +6,7 @@ Setup Raspberry Pi
 2. To enable SSH: create an empty file in the root os the SD card called "ssh" (no extension)
 3. To enable WiFi create a file called wpa_supplicant.conf
 	Enter the following data:
-
+```
 	country=us
 	update_config=1
 	ctrl_interface=/var/run/wpa_supplicant
@@ -16,7 +16,7 @@ Setup Raspberry Pi
  	ssid="MyNetworkSSID" #enter your network SSID
  	psk="Pa55w0rd1234"  #enter your Wifi password
 	}
-
+```
 4. Insert SD card into Raspberry Pi and boot up
 5. Connect to Raspberry Pi using ssh (ssh raspberrypi)
 	username = pi
