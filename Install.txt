@@ -1,7 +1,58 @@
 Steps to install everything
 
+# garagedoor
 
-Software Installation
+Setup Raspberry Pi
+1. Install Raspian
+	Download latest Raspian to your PC
+2. To enable SSH: create an empty file in the root os the SD card called "ssh" (no extension)
+3. To enable WiFi create a file called wpa_supplicant.conf
+	Enter the following data:
+```
+	country=us
+	update_config=1
+	ctrl_interface=/var/run/wpa_supplicant
+
+	network={
+ 	scan_ssid=1
+ 	ssid="MyNetworkSSID" #enter your network SSID
+ 	psk="Pa55w0rd1234"  #enter your Wifi password
+	}
+```
+4. Insert SD card into Raspberry Pi and boot up
+5. Connect to Raspberry Pi using ssh (ssh raspberrypi)
+	username = pi
+	password = raspberry
+
+	Use ifconfig to find the ip addres of your raspberry pi
+
+6. Update the raspian OS
+```
+	$sudo apt-get update
+	$sudo apt-get upgrade
+```
+7. If you want to connect to raspberry pi using vnc, enable it in the configuration
+```
+$sudo raspi-config
+```
+8. Set static IP address on Pi:
+	Edit the file /etc/dhcpcd.conf
+	$ sudo nano /etc/dhcpcd.conf
+	Add the following lines to the end of the file:
+		interface eth0
+		static ip_address=192.168.1.150 (or whatever address you want to use)
+
+		interface wlan0
+		static ip_address=192.168.1.151 (or whatever address you want to use)
+
+		static routers=192.168.1.1 (the actual  address of your router)
+
+9. Reboot the raspberry pi to make the changes take effect
+```
+$sudo reboot
+```
+
+Garage Door Application Software Installation
 
 1.Install WebIOPi
 	Download from: http://webiopi.trouch.com/DOWNLOADS.html
