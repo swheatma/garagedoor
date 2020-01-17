@@ -31,7 +31,6 @@ Software Installation
    To stop the web service:
 	$ sudo /etc/init.d/webiopi stop
 	
-
 6. To start Garage program at startup: 
 	Option-1: 
 	Add to LXDE-pi/autostart file 
@@ -41,11 +40,11 @@ Software Installation
 	Option-2: 
 	Add to crontab 
 	Edit the crontab file 
-	$ sudo crontab -e 
+		$ sudo crontab -e 
 	add the following line: 
-	@reboot python /home/pi/Projects/garagedoor/python/garage.py & 
+		@reboot python /home/pi/Projects/garagedoor/python/garage.py & 
 	to add a delay before the program starts (recommended) 
-	@reboot sleep 20 && python /home/pi/Projects/garagedoor/python/garage.py &
+		@reboot sleep 20 && python /home/pi/Projects/garagedoor/python/garage.py &
 	
    To start web service at startup:
 	$ sudo update-rc.d webiopi defaults
@@ -56,9 +55,7 @@ Software Installation
 	Default user is "webiopi" and password is "raspberry"
 
 Hardware Installation:
-1. Connect Door-1 Sensor between pin-11 (GPIO17) and Ground
-2. Connect Door-2 Sensor between pin-12 (GPIO18) and Ground
-3. Connect Door-1 output to pin-18 (GPIO24)
-4. Connect Door-2 output to pin-17 (GPIO-22)
-
-
+	1. Connect Door-1 Sensor between pin-11 (GPIO17) and Ground
+	2. Connect Door-2 Sensor between pin-12 (GPIO18) and Ground
+	3. Connect Door-1 output to pin-18 (GPIO24)
+	4. Connect Door-2 output to pin-17 (GPIO-22)
