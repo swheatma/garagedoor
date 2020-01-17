@@ -20,26 +20,37 @@ Software Installation
 			script.py (the web interface program)
 		html foler contains index.html for the web interface
 
+3. Make the program executable:
+	$ chmod +x /home/pi/Projects/garagedoor/python/garage.py
 
-3. Copy config file to WebOIPi folder
+4. Copy config file to WebOIPi folder
 	$sudo cp /home/pi/Projects/Garage /etc/webiopi/config
-
-4. To start Garage program at startup:
-	Make the program executable:
-		$ chmod +x /home/pi/Projects/garagedoor/python/garage.py
-	Add to startup file
-		Add the following line of text to the bottom of: /home/pi/.config/lxsession/LXDE-pi/autostart
-		/home/pi/Projects/garagedoor/python/garage.py
 
 5. To start the web service:
 	$ sudo /etc/init.d/webiopi start
    To stop the web service:
 	$ sudo /etc/init.d/webiopi stop
 	
+
+6. To start Garage program at startup: 
+	Option-1: 
+	Add to LXDE-pi/autostart file 
+	Add the following line of text to the bottom of: /home/pi/.config/lxsession/LXDE-pi/autostart 
+	/home/pi/Projects/garagedoor/python/garage.py 
+	
+	Option-2: 
+	Add to crontab 
+	Edit the crontab file 
+	$ sudo crontab -e 
+	add the following line: 
+	@reboot python /home/pi/Projects/garagedoor/python/garage.py & 
+	to add a delay before the program starts (recommended) 
+	@reboot sleep 20 && python /home/pi/Projects/garagedoor/python/garage.py &
+	
    To start web service at startup:
 	$ sudo update-rc.d webiopi defaults
 
-6. Access WebIOPi over local network
+7. Access WebIOPi over local network
 	Open a browser to http://raspberrypi:8000/ with any device of your network. Replace raspberrypi by its IP.
 
 	Default user is "webiopi" and password is "raspberry"
