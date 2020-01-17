@@ -1,7 +1,5 @@
 Steps to install everything
 
-# garagedoor
-
 Setup Raspberry Pi
 1. Install Raspian
 	Download latest Raspian to your PC
