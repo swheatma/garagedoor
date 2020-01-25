@@ -77,14 +77,14 @@ Copy the files from GitHub:
 $ git clone https://github.com/swheatma/garagedoor
 ```
 
-This will create a folder called garagedoor in the current folder. 
-	Notes: 
-	This should create the html and python sub-folders. 
-  The root folder will contain the config file which will need to be copied as stated below 
-		The python folder will contain: 
-			garage.py (the garage controller program) 
-			script.py (the web interface program) 
-		The html folder contains index.html for the web interface
+This will create a folder called garagedoor in the current folder.
+- Notes:
+  - This should create the html and python sub-folders. 
+    - The root folder will contain the config file which will need to be copied as stated below 
+    - The python folder will contain: 
+      - garage.py (the garage controller program) 
+      - script.py (the web interface program) 
+    - The html folder contains index.html for the web interface
 	
 3. Make the program executable:
 ```
