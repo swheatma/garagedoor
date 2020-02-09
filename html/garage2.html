@@ -1,0 +1,113 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Garage Door Control</title>
+
+    <style type="text/css">
+
+	buttonL {
+            display: block;
+            margin: 5px 5px 5px 5px;
+            width: 250px;
+            height: 45px;
+			border-radius: 10px;
+            border: 2px solid #f44336;
+			font-size: 24pt;
+            font-weight: bold;
+            text-align: center;
+			position: fixed;
+				top: 150px;
+				left: 50px;
+			color: blue;
+			background-color: lightgray;
+        }
+	
+	buttonR {
+            display: block;
+            margin: 5px 5px 5px 5px;
+            width: 250px;
+            height: 45px;
+			border-radius: 10px;
+            border: 2px solid #f44336;
+			font-size: 24pt;
+            font-weight: bold;
+            text-align: center;
+			position: fixed;
+				top: 150px;
+				left: 430px;
+			color: blue;
+			background-color: lightgray;
+        }
+		
+	#left {
+	  position: fixed;
+	  top: 10px;
+	  left: 50px;   	 
+   	 width: 250px;
+   	 height: 45px;
+   	 background-color: lightgreen;
+	 font-size: 24pt;
+         font-weight: bold;
+	 display: flex;
+	 flex-wrap: wrap;
+	 align-content: center;
+	 justify-content: center;
+    	border: 6px solid #addddd;
+	}		
+
+	#right {
+	  position: fixed;
+	  top: 10px;
+	  left: 430px;   	 
+   	 width: 250px;
+   	 height: 45px;
+   	 background-color: lightgreen;
+	 font-size: 24pt;
+         font-weight: bold;
+	 display: flex;
+	 flex-wrap: wrap;
+	 align-content: center;
+	 justify-content: center;
+    	border: 6px solid #addddd;
+	}
+    
+	#gpio17.LOW {
+            background-color: Green;
+        }        
+	#gpio17.HIGH {
+            background-color: Red;
+        }        
+	#gpio18.LOW {
+            background-color: Green;
+        }        
+	#gpio18.HIGH {
+            background-color: Red;
+        }        
+	
+	</style>
+</head>
+
+<body>  
+	<div id="left">
+	LEFT DOOR
+	</div>
+    
+	<div id="right">
+	RIGHT DOOR
+	</div>
+
+	<div id="pstn3"></div>
+	
+	<buttonL type="submit">
+		Left Button
+		</button>
+		
+	<buttonR type="submit">
+		Right Button
+		</button>
+		
+	
+
+</body>
+</html>
+
