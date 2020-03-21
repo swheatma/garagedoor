@@ -4,7 +4,7 @@ from time import sleep
 from http.server import BaseHTTPRequestHandler, HTTPServer
 
 host_name = '192.168.1.52'  # Change this to your Raspberry Pi IP address
-host_port = 8080
+host_port = 808python0
 filename = "html_string2a.html"
 pin17 = 0
 html_string = ""
@@ -32,20 +32,24 @@ class MyServer(BaseHTTPRequestHandler):
         """
 		
         self.do_HEAD()
-        door_status = 'The door is currently '
-        if GPIO.input(17) or pin17 == 1:
-            door_status+= "open."
+        L_door_status = 'The door is currently '
+        if GPIO.input(17):
+            L_door_status+= "open."
         else:
-            door_status+= "closed."
+            L_door_status+= "closed."
+        R_door_status = 'The door is currently '
+        if GPIO.input(18):
+            R_door_status+= "open."
+        else:
+            R_door_status+= "closed."
                 
-        self.wfile.write(html_string.format(door_status).encode("utf-8"))
+        self.wfile.write(html_string.format(L_door_status).encode("utf-8"))
         
     def do_POST(self):
         global pin17
         GPIO.output(22, GPIO.HIGH)
         sleep(1.25)
         GPIO.output(22, GPIO.LOW)
-        pin17=(pin17+1)%2
         self._redirect('/')
         
     def _redirect(self, path):
