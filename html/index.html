@@ -9,22 +9,23 @@
         
 	// Create a button for GPIO17 status
 	button=webiopi().createGPIOButton(17,"Left Door");
-        $("#controls").append(button);
+        $("#pstn1").append(button);
 
 	// Create a button for GPIO18 status
 	button=webiopi().createGPIOButton(18,"Right Door");
-        $("#controls").append(button);
+        $("#pstn2").append(button);
 
-	// Create a button for GPIO 22 labelled "Left Button"
-        var button = webiopi().createGPIOButton(22, "Left Button");
-        // Append button to HTML element with ID="controls" using jQuery
-        $("#controls").append(button);
-
-        // Create a button for GPIO 23 labelled "Right Door"
-        var button = webiopi().createGPIOButton(23, "Right Button");
+	// Create a Sequence button for GPIO 22 labelled "Left Button"
+	button = webiopi().createSequenceButton("Left", "Left Button", 22, 50, "10");
 	// Append button to HTML element with ID="controls" using jQuery
-        $("#controls").append(button);
-        // Refresh GPIO buttons
+        $("#pstn3").append(button);
+
+        // Create a Sequence button for GPIO 23 labelled "Right Button"
+        button = webiopi().createSequenceButton("Right", "Right Button", 23, 50, "10");
+	// Append button to HTML element with ID="controls" using jQuery
+        $("#pstn4").append(button);
+       
+	// Refresh GPIO buttons
         // pass true to refresh repeatedly of false to refresh once
                 webiopi().refreshGPIO(true);
     });
@@ -36,10 +37,35 @@
             margin: 5px 5px 5px 5px;
             width: 250px;
             height: 45px;
+	    border-radius: 10px;
             font-size: 24pt;
             font-weight: bold;
             color: white;
         }
+
+	#pstn1 {
+	position: absolute;
+	top: 5%;
+	left: 10%;
+	}
+
+	#pstn2 {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	}
+
+	#pstn3 {
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	}
+	
+	#pstn4 {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	}
 
 	#gpio17.LOW {
             background-color: Green;
@@ -53,22 +79,27 @@
 	#gpio18.HIGH {
             background-color: Red;
         }        
-	#gpio22.LOW {
-            background-color: Black;
-        }
-        #gpio22.HIGH {
-            background-color: Grey;
-        }
-        #gpio23.LOW {
-            background-color: Black;
-        }
-        #gpio23.HIGH {
-            background-color: Grey;
-        }
+
+	#Right{
+        	background-color: Blue;
+	}
+	#Right:active {
+		background-color: Yellow;
+	}
+	#Left{
+		background-color: Blue;
+	}
+	#Left:active {
+		background-color: Yellow;
+	}
 
     </style>
 </head>
 <body>
     <div id="controls" align="center"></div>
+    <div id="pstn1"></div>
+    <div id="pstn2"></div>
+    <div id="pstn3"></div>
+    <div id="pstn4"></div>
 </body>
 </html>
