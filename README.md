@@ -1,79 +1,22 @@
 # garagedoor
-Steps to install everything
 
+This system actually consists of two separate applications.
 
-Software Installation
+Garage.py is a program that monitors the staus of the doors. If a door has been open for too long (as defined by the parameter ) the door will be automatically closed.
 
-1. Install WebIOPi
-	Download from: http://webiopi.trouch.com/DOWNLOADS.html
-	
-	or
-	
-	wget http://sourceforge.net/projects/webiopi/files/webiopi-0.7.1.tar.gz
-	
-	Install:
-		$ tar xvzf WebIOPi-x.y.z.tar.gz
-		$ cd WebIOPi-x.y.z
-		$ sudo ./setup.sh
+The WebIOPi program is a web based application that will display the door status, and allow a user to open an close the door from a web page.
 
-2. Set static IP address on Pi:
-	Edit the file /etc/dhcpcd.conf
-	$ sudo nano /etc/dhcpcd.conf
-	Add the following lines to the end of the file:
-		interface eth0
-		static ip_address=192.168.1.150 (or whatever address you want to use)
+Each application can be run separately, but the most benefit is obtained by using both applications.
 
-		interface wlan0
-		static ip_address=192.168.1.151 (or whatever address you want to use)
-
-		static routers=192.168.1.1 (the actual  address of your router)
-
-3. Install Garage Door Controller:
-	Go to the folder: /home/pi/Projects
-		$ cd /home/pi/Projects
-	Copy the files from GitHub:
-		$ git clone https://github.com/swheatma/garagedoor
-	This will create a folder called garagedoor in the current folder.
-	Notes:
-		This should create the html and python sub-folders
-		The root folder will contain the config file which will need to be copied as stated below
-		The python folder will contain:
-			garage.py (the garage controller program)
-			script.py (the web interface program)
-		The html folder contains index.html for the web interface
-
-4. Copy config file to WebOIPi folder
-	$sudo cp /home/pi/Projects/garagedoor/config-garage /etc/webiopi/config
-
-5. Make the program executable:
-	$ chmod +x /home/pi/Projects/garagedoor/python/garage.py
-
-6. To start Garage program at startup:
-	Option-1:
-		Add to LXDE-pi/autostart file
-		Add the following line of text to the bottom of: /home/pi/.config/lxsession/LXDE-pi/autostart
-		/home/pi/Projects/garagedoor/python/garage.py
-	Option-2:
-		Add to crontab
-		Edit the crontab file
-		$ sudo crontab -e
-		add the following line:
-		@reboot python /home/pi/Projects/garagedoor/python/garage.py &
-		to add a delay before the program starts (recommended)
-		@reboot sleep 20 && python /home/pi/Projects/garagedoor/python/garage.py &
-
-7. To start web service at startup:
-	$ sudo update-rc.d webiopi defaults
-
-8. Access WebIOPi over local network
+USAGE
+To access WebIOPi over local network
 	Open a browser to http://raspberrypi:8000/ with any device of your network. Replace raspberrypi by its IP.
 
 	Default user is "webiopi" and password is "raspberry"
 
-Hardware Installation:
-1. Connect Door-1 Sensor between pin-11 (GPIO17) and Ground
-2. Connect Door-2 Sensor between pin-12 (GPIO18) and Ground
-3. Connect Door-1 output to pin-18 (GPIO24)
-4. Connect Door-2 output to pin-17 (GPIO-22)
+The programs as supplied assume you are using the custom GaragePi PWA.  This hardware assumes the following IO
 
-
+	Door-1 Sensor between pin-11 (GPIO17)
+	Door-2 Sensor between pin-12 (GPIO18) 
+	Door-1 output to pin-18 (GPIO24)
+	Door-2 output to pin-17 (GPIO-22)

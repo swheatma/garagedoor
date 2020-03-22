@@ -1,0 +1,118 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Garage Door Control</title>
+    <div id="indicator">
+	LEFT
+	</div>
+    <div id="indicator2">
+	RIGHT
+	</div>
+
+    <style type="text/css">
+        button {
+            display: block;
+            margin: 5px 5px 5px 5px;
+            width: 250px;
+            height: 45px;
+	    border-radius: 10px;
+            font-size: 36pt;
+	    font-weight: bold;
+            color: blue;
+        }
+
+	#indicator {
+	  position: absolute;
+	  top: 5%;
+	  left: 10%;   	 
+   	 width: 250px;
+   	 height: 45px;
+   	 background-color: lightgreen;
+	 font-size: 36pt;
+         font-weight: bold;
+	 display: flex;
+	 flex-wrap: wrap;
+	 align-content: center;
+	 justify-content: center;
+    	border: 6px solid #addddd;
+	}		
+
+	#indicator2 {
+	  position: absolute;
+	  top: 5%;
+	  left: 50%;   	 
+   	 width: 250px;
+   	 height: 45px;
+   	 background-color: lightgreen;
+	 font-size: 36pt;
+         font-weight: bold;
+	 display: flex;
+	 flex-wrap: wrap;
+	 align-content: center;
+	 justify-content: center;
+    	border: 6px solid #addddd;
+	}
+
+
+	#pstn1 {
+	position: absolute;
+	top: 5%;
+	left: 10%;
+	}
+
+	#pstn2 {
+	position: absolute;
+	top: 5%;
+	left: 50%;
+	}
+
+	#pstn3 {
+	position: absolute;
+	top: 20%;
+	left: 10%;
+	}
+	
+	#pstn4 {
+	position: absolute;
+	top: 20%;
+	left: 50%;
+	}
+
+	#gpio17.LOW {
+            background-color: Green;
+        }        
+	#gpio17.HIGH {
+            background-color: Red;
+        }        
+	#gpio18.LOW {
+            background-color: Green;
+        }        
+	#gpio18.HIGH {
+            background-color: Red;
+        }        
+
+	#Right{
+        	background-color: Blue;
+	}
+	#Right:active {
+		background-color: Yellow;
+	}
+	#Left{
+		background-color: Blue;
+	}
+	#Left:active {
+		background-color: Yellow;
+	}
+
+    </style>
+</head>
+<body>  
+	<div id="controls" align="center"></div>
+	<div id="pstn1"></div>
+	<div id="pstn2"></div>
+    	<div id="pstn3"></div>
+    	<div id="pstn4"></div>
+
+</body>
+</html>
+
