@@ -5,7 +5,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 
 host_name = '192.168.1.52'  # Change this to your Raspberry Pi IP address
 host_port = 8080
-filename = "html_string2a.html"
+filename = "/home/pi/Projects/garagedoor_dev/html_string2a.html"
 pin17 = 0
 html_string = ""
 
