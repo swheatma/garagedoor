@@ -38,19 +38,18 @@ class MyServer(BaseHTTPRequestHandler):
         else:
             L_door_status+= "closed."
         print(L_door_status)
-        print(html_string)
-        formattedstring = html_string.format(L_door_status," junk")
-        print(formattedstring)
+        
+        R_door_status = 'The door is currently '
+        if GPIO.input(18):
+            R_door_status+= "open."
+         else:
+            R_door_status+= "closed."
+ 	               
+        #print(html_string)
+        formattedstring = html_string.format(L_door_status,R_door_status)
+        #print(formattedstring)
         encodedstring = formattedstring.encode("utf-8")
         self.wfile.write(encodedstring)
-
-        #R_door_status = 'The door is currently '
-        #if GPIO.input(18):
-        #    R_door_status+= "open."
-        # else:
-        #    R_door_status+= "closed."
- 	               
- 
         
     def do_POST(self):
         global pin17
