@@ -42,7 +42,7 @@ class MyServer(BaseHTTPRequestHandler):
         R_door_status = 'The door is currently '
         if GPIO.input(18):
             R_door_status+= "open."
-         else:
+        else:
             R_door_status+= "closed."
  	               
         #print(html_string)
