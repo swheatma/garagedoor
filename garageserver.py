@@ -18,46 +18,59 @@ class MyServer(BaseHTTPRequestHandler):
     """
 
     def do_HEAD(self):
-        """ do_HEAD() can be tested use curl command
-            'curl -I http://server-ip-address:port'
-        """
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
 
     def do_GET(self):
         global pin17
-        """ do_GET() can be tested using curl command
-            'curl http://server-ip-address:port'
-        """
-		
+
         self.do_HEAD()
-        L_door_status = 'The door is currently '
+        L_door_status = 'The left door is currently '
         if GPIO.input(17):
-            L_door_status+= "open."
+            L_door_status = "Open"
         else:
-            L_door_status+= "closed."
-        print(L_door_status)
-        
-        R_door_status = 'The door is currently '
+            L_door_status = "Closed"
+        print("Left Door: ", L_door_status)
+
+        R_door_status = 'The right door is currently '
         if GPIO.input(18):
-            R_door_status+= "open."
+            R_door_status = "Open"
         else:
-            R_door_status+= "closed."
- 	               
+            R_door_status = "Closed"
+        print("Right Door: ", R_door_status)
+
         #print(html_string)
         formattedstring = html_string.format(L_door_status,R_door_status)
         #print(formattedstring)
         encodedstring = formattedstring.encode("utf-8")
         self.wfile.write(encodedstring)
-        
+
     def do_POST(self):
-        global pin17
-        GPIO.output(22, GPIO.HIGH)
-        sleep(1.25)
-        GPIO.output(22, GPIO.LOW)
-        self._redirect('/')
-        
+#        global pin17
+
+        content_length = int(self.headers['Content-Length'])
+        print(content_length)
+        body = self.rfile.read(content_length)
+        print("body =", body)
+        body2 = body.decode('utf-8')
+        print("Body2 = ", body2)
+        body3 = body2.split("subject=",1)[1]
+        print(body3)
+
+        if body3 == "LDoor":
+           print("You pressed Left-Door")
+           GPIO.output(22, GPIO.HIGH)
+           sleep(1.25)
+           GPIO.output(22, GPIO.LOW)
+        elif body3 == "RDoor":
+           print("You pressed Right-Door")
+           GPIO.output(23, GPIO.HIGH)
+           sleep(1.25)
+           GPIO.output(23, GPIO.LOW)
+
+       	self._redirect('/')
+
     def _redirect(self, path):
         self.send_response(303)
         self.send_header('Content-type', 'text/html')

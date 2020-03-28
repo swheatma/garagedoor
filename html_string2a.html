@@ -6,11 +6,10 @@
 <h1>Welcome to my Garage</h1>
 <p>Left Door Status: {}</p>
 <p>Right Door Status: {}</p>
-<form action="/">
-    <button formmethod="post" type="submit">Toggle Left Door</button>
-    </form>
-<form action="/">
-    <button formmethod="post" type="submit">Toggle Right Door</button>
+<form action="/" method="post">
+    Select a Door:
+    <button name="subject" type="submit" value="LDoor">Toggle Left Door</button>
+    <button name="subject" type="submit" value="RDoor">Toggle Right Door</button>
     </form> 
 </body>
 </html>
