@@ -27,7 +27,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
-        global pin17, LColor, RColor
+        global LColor, RColor
 
         self.do_HEAD()
         #print(html_string)
@@ -38,7 +38,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(html_string.format(LDoor_color=LColor, RDoor_color=RColor).encode("utf-8"))
 
     def do_POST(self):
-#        global LColor, RColor
+#       global LColor, RColor
 
         # check door status
         if GPIO.input(17):
@@ -60,13 +60,13 @@ class MyServer(BaseHTTPRequestHandler):
 
         # check for button press
         content_length = int(self.headers['Content-Length'])
-        print(content_length)
+        #print(content_length)
         body = self.rfile.read(content_length)
-        print("body =", body)
+        #print("body =", body)
         body2 = body.decode('utf-8')
-        print("Body2 = ", body2)
+        #print("Body2 = ", body2)
         body3 = body2.split("door=",1)[1]
-        print(body3)
+        #print(body3)
 
         if body3 == "Door-1":
            print("You pressed Left-Door")
