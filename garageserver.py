@@ -49,10 +49,11 @@ class MyServer(BaseHTTPRequestHandler):
         print("Right Door: ", R_door_status)
 
         #print(html_string)
-        formattedstring = html_string.format(LDoor_color=LColor,RDoor_color=RColor)
+        #formattedstring = html_string.format(LDoor_color=LColor,RDoor_color=RColor)
         #print(formattedstring)
-        encodedstring = formattedstring.encode("utf-8")
-        self.wfile.write(encodedstring)
+        #encodedstring = formattedstring.encode("utf-8")
+        #self.wfile.write(encodedstring)
+        self.wfile.write(html_string.format(LDoor_color=LColor, RDoor_color=RColor).encode("utf-8"))
 
     def do_POST(self):
 #        global pin17
