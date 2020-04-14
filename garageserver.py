@@ -32,7 +32,7 @@ class MyServer(BaseHTTPRequestHandler):
         #print(formattedstring)
         #encodedstring = formattedstring.encode("utf-8")
         #self.wfile.write(encodedstring)
-        self.wfile.write(html_string.format(LDoor_color="Yellow", RDoor_color=RColor).encode("utf-8"))
+        self.wfile.write(html_string.format(LDoor_color=LColor, RDoor_color=RColor).encode("utf-8"))
 
     def do_POST(self):
 #       global LColor, RColor
