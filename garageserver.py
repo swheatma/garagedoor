@@ -27,7 +27,7 @@ class MyServer(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
-        global pin17
+        global pin17, LColor, RColor
 
         self.do_HEAD()
         L_door_status = 'The left door is currently '
@@ -42,14 +42,14 @@ class MyServer(BaseHTTPRequestHandler):
         R_door_status = 'The right door is currently '
         if GPIO.input(18):
             R_door_status = "Open"
-            Rcolor = "Green"
+            RColor = "Green"
         else:
             R_door_status = "Closed"
             RColor = "Red"
         print("Right Door: ", R_door_status)
 
         #print(html_string)
-        formattedstring = html_string.format(L_door_status,R_door_status)
+        formattedstring = html_string.format(LColor,RColor_status)
         #print(formattedstring)
         encodedstring = formattedstring.encode("utf-8")
         self.wfile.write(encodedstring)
