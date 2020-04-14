@@ -27,11 +27,24 @@ class MyServer(BaseHTTPRequestHandler):
         global LColor, RColor
 
         self.do_HEAD()
-        #print(html_string)
-        #formattedstring = html_string.format(LDoor_color=LColor,RDoor_color=RColor)
-        #print(formattedstring)
-        #encodedstring = formattedstring.encode("utf-8")
-        #self.wfile.write(encodedstring)
+
+        # check door status
+        if GPIO.input(17):
+            L_door_status = "Open"
+            LColor = "Red"
+        else:
+            L_door_status = "Closed"
+            LColor = "Green"
+        print("Left Door: ", L_door_status, LColor)
+
+        if GPIO.input(18):
+            R_door_status = "Open"
+            RColor = "Red"
+        else:
+            R_door_status = "Closed"
+            RColor = "Green"
+        print("Right Door: ", R_door_status, RColor)
+
         self.wfile.write(html_string.format(LDoor_color=LColor, RDoor_color=RColor).encode("utf-8"))
 
     def do_POST(self):
