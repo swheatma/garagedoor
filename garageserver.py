@@ -30,24 +30,6 @@ class MyServer(BaseHTTPRequestHandler):
         global pin17, LColor, RColor
 
         self.do_HEAD()
-        L_door_status = 'The left door is currently '
-        if GPIO.input(17):
-            L_door_status = "Open"
-            LColor = "Green"
-        else:
-            L_door_status = "Closed"
-            LColor = "Red"
-        print("Left Door: ", L_door_status, LColor)
-
-        R_door_status = 'The right door is currently '
-        if GPIO.input(18):
-            R_door_status = "Open"
-            RColor = "Green"
-        else:
-            R_door_status = "Closed"
-            RColor = "Red"
-        print("Right Door: ", R_door_status, RColor)
-
         #print(html_string)
         #formattedstring = html_string.format(LDoor_color=LColor,RDoor_color=RColor)
         #print(formattedstring)
@@ -56,8 +38,27 @@ class MyServer(BaseHTTPRequestHandler):
         self.wfile.write(html_string.format(LDoor_color=LColor, RDoor_color=RColor).encode("utf-8"))
 
     def do_POST(self):
-#        global pin17
+#        global LColor, RColor
 
+        # check door status
+        if GPIO.input(17):
+            L_door_status = "Open"
+            LColor = "Red"
+        else:
+            L_door_status = "Closed"
+            LColor = "Green"
+        print("Left Door: ", L_door_status, LColor)
+
+        if GPIO.input(18):
+            R_door_status = "Open"
+            RColor = "Red"
+        else:
+            R_door_status = "Closed"
+            RColor = "Green"
+        print("Right Door: ", R_door_status, RColor)
+
+
+        # check for button press
         content_length = int(self.headers['Content-Length'])
         print(content_length)
         body = self.rfile.read(content_length)
