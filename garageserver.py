@@ -49,7 +49,7 @@ class MyServer(BaseHTTPRequestHandler):
         print("Right Door: ", R_door_status)
 
         #print(html_string)
-        formattedstring = html_string.format(LColor,RColor_status)
+        formattedstring = html_string.format(LColor,RColor)
         #print(formattedstring)
         encodedstring = formattedstring.encode("utf-8")
         self.wfile.write(encodedstring)
