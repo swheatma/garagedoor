@@ -6,10 +6,7 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 host_name = '192.168.1.52'  # Change this to your Raspberry Pi IP address
 host_port = 8080
 filename = "/home/pi/Projects/garagedoor_dev/html_string2a.html"
-pin17 = 0
 html_string = ""
-door1 = 0
-door2 = 0
 LColor = "Yellow"
 RColor = "Yellow"
 
@@ -35,7 +32,7 @@ class MyServer(BaseHTTPRequestHandler):
         #print(formattedstring)
         #encodedstring = formattedstring.encode("utf-8")
         #self.wfile.write(encodedstring)
-        self.wfile.write(html_string.format(LDoor_color=LColor, RDoor_color=RColor).encode("utf-8"))
+        self.wfile.write(html_string.format(LDoor_color="Yellow", RDoor_color=RColor).encode("utf-8"))
 
     def do_POST(self):
 #       global LColor, RColor
