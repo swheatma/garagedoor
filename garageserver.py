@@ -63,7 +63,7 @@ class MyServer(BaseHTTPRequestHandler):
         print("body =", body)
         body2 = body.decode('utf-8')
         print("Body2 = ", body2)
-        body3 = body2.split("subject=",1)[1]
+        body3 = body2.split("door=",1)[1]
         print(body3)
 
         if body3 == "LDoor":
