@@ -68,12 +68,12 @@ class MyServer(BaseHTTPRequestHandler):
         body3 = body2.split("door=",1)[1]
         print(body3)
 
-        if body3 == "LDoor":
+        if body3 == "Door-1":
            print("You pressed Left-Door")
            GPIO.output(22, GPIO.HIGH)
            sleep(1.25)
            GPIO.output(22, GPIO.LOW)
-        elif body3 == "RDoor":
+        elif body3 == "Door-2":
            print("You pressed Right-Door")
            GPIO.output(23, GPIO.HIGH)
            sleep(1.25)
