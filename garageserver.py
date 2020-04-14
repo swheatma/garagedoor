@@ -37,7 +37,7 @@ class MyServer(BaseHTTPRequestHandler):
         else:
             L_door_status = "Closed"
             LColor = "Red"
-        print("Left Door: ", L_door_status)
+        print("Left Door: ", L_door_status, LColor)
 
         R_door_status = 'The right door is currently '
         if GPIO.input(18):
@@ -46,7 +46,7 @@ class MyServer(BaseHTTPRequestHandler):
         else:
             R_door_status = "Closed"
             RColor = "Red"
-        print("Right Door: ", R_door_status)
+        print("Right Door: ", R_door_status, RColor)
 
         #print(html_string)
         #formattedstring = html_string.format(LDoor_color=LColor,RDoor_color=RColor)
