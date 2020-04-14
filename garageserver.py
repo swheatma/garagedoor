@@ -8,6 +8,10 @@ host_port = 8080
 filename = "/home/pi/Projects/garagedoor_dev/html_string2a.html"
 pin17 = 0
 html_string = ""
+door1 = 0
+door2 = 0
+LColor = "Yellow"
+RColor = "Yellow"
 
 with open(filename)  as f:
     html_string = f.read()
@@ -29,15 +33,19 @@ class MyServer(BaseHTTPRequestHandler):
         L_door_status = 'The left door is currently '
         if GPIO.input(17):
             L_door_status = "Open"
+            LColor = "Green"
         else:
             L_door_status = "Closed"
+            LColor = "Red"
         print("Left Door: ", L_door_status)
 
         R_door_status = 'The right door is currently '
         if GPIO.input(18):
             R_door_status = "Open"
+            Rcolor = "Green"
         else:
             R_door_status = "Closed"
+            RColor = "Red"
         print("Right Door: ", R_door_status)
 
         #print(html_string)
