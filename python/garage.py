@@ -4,14 +4,16 @@ import RPi.GPIO as GPIO
 import time
 
 # set variables
-left = 11    #GPIO17
-right = 12   #GPIO18
+left = 11        #GPIO17
+right = 12       #GPIO18
+far_right = 13   #GPIO27
 
-L_Door = 15 #GPIO22
-R_Door = 16 #GPIO23
+L_Door = 15   #GPIO22
+R_Door = 16   #GPIO23
+RR_Door = 18  #GPIO24
 
 
-delay = 300     #door open limit in seconds (production version)
+delay = 300    #door open limit in seconds (production version)
 #delay = 5     #door open limit in seconds (debug version)
 
 OPEN = "open"
@@ -24,6 +26,7 @@ def GPIOsetup():
     GPIO.setwarnings(False)
     GPIO.setup(left, GPIO.IN)
     GPIO.setup(right, GPIO.IN)
+    GPIO.setup(far_right, GPIO.IN)    
     GPIO.setup(R_Door, GPIO.OUT)
     GPIO.setup(L_Door, GPIO.OUT)
 
