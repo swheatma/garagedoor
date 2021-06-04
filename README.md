@@ -58,7 +58,7 @@ Steps to install Garage Door Program
 	wget http://sourceforge.net/projects/webiopi/files/webiopi-0.7.1.tar.gz
 ```	
 
-or download from: http://webiopi.trouch.com/DOWNLOADS.html
+        or download from: http://webiopi.trouch.com/DOWNLOADS.html
 	Unarchive and Install:
 ```		
 		$ tar xvzf WebIOPi-x.y.z.tar.gz
@@ -69,15 +69,17 @@ or download from: http://webiopi.trouch.com/DOWNLOADS.html
 2. Install Garage Door Controller:
 	Go to the folder: /home/pi/Projects
 ```
-$ cd /home/pi/Projects
+              $ cd /home/pi/Projects
 ```
 
 	Copy the files from GitHub:
 
 ```
-$ git clone https://github.com/swheatma/garagedoor
+             $ git clone https://github.com/swheatma/garagedoor
 ```
-This will create a folder called garagedoor in the current folder.
+
+```
+        This will create a folder called garagedoor in the current folder.
 	Notes:
 		This should create the html and python sub-folders
 		The root folder will contain the config file which will need to be copied as stated below
@@ -88,10 +90,10 @@ This will create a folder called garagedoor in the current folder.
 
 3. Copy config file to WebOIPi folder
 ```
-$sudo cp /home/pi/Projects/garagedoor/config-garage /etc/webiopi/config
+          $sudo cp /home/pi/Projects/garagedoor/config-garage /etc/webiopi/config
 ```
 4. Make the program executable:
-```
+
 	$ chmod +x /home/pi/Projects/garagedoor/python/garage.py
 ```
 
