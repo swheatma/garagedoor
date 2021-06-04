@@ -96,7 +96,8 @@ $sudo cp /home/pi/Projects/garagedoor/config-garage /etc/webiopi/config
 ```
 
 5. To start Garage program at startup:
-	Option-1:
+```
+        Option-1:
 		Add to LXDE-pi/autostart file
 		Add the following line of text to the bottom of: /home/pi/.config/lxsession/LXDE-pi/autostart
 		/home/pi/Projects/garagedoor/python/garage.py
@@ -108,6 +109,7 @@ $sudo cp /home/pi/Projects/garagedoor/config-garage /etc/webiopi/config
 		@reboot python /home/pi/Projects/garagedoor/python/garage.py &
 		to add a delay before the program starts (recommended)
 		@reboot sleep 20 && python /home/pi/Projects/garagedoor/python/garage.py &
+```
 
 6. To start web service at startup:
 ```
